@@ -18,15 +18,29 @@ public class FrotaMotorizada {
     public FrotaMotorizada() {
         this.veiculos = new ArrayList<Veiculo>();
     }
+    public String dialog(Object message) {
+        String userInput = "";
+        Object msg = message;
+            while (true) {
+                userInput = JOptionPane.showInputDialog(msg);
+               if (userInput.isEmpty()) {
+                msg += "\n Resposta Vazia! \n";
+            continue;
+        }
+        break;
+            }
+        return userInput;
+    }
+
     public Object[] leValores (Object [] dadosIn, String[]... intValores){
     Object [] dadosOut = new Object [dadosIn.length]; // modify the output array to hold Objects
     String[] intValoresMerged = Stream.of(intValores).flatMap(Stream::of).toArray(String[]::new);
     for (int i = 0; i < dadosIn.length; i++){
         if (Arrays.asList(intValoresMerged).contains(dadosIn[i])){
-            String entrada = JOptionPane.showInputDialog("Entre com " + dadosIn[i]+ ": ");
+            String entrada = dialog("Entre com " + dadosIn[i]+ ": ");
             dadosOut[i] = this.retornaInteiro(entrada, "Entre com " + dadosIn[i]+ ": ");
         } else {
-            dadosOut[i] = JOptionPane.showInputDialog("Entre com " + dadosIn[i]+ ": ");
+            dadosOut[i] = dialog("Entre com " + dadosIn[i]+ ": ");
         }
     }
     return dadosOut;
