@@ -25,7 +25,7 @@ public class FrotaMotorizada {
     public Automovel leAutomovel (){
 
         String [] valores = new String [6];
-        String [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Motorizacao"};
+        String [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Motorização"};
         valores = leValores (nomeVal);
 
         int ano = this.retornaInteiro(valores[2]);

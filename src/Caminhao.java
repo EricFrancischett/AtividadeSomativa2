@@ -6,7 +6,7 @@ public class Caminhao extends Veiculo {
 
     @Override
     public String utilidade() {
-        return "Útil para transporte de muitas pessoas";
+        return "Útil para transporte de cargas";
     }
 
     public Caminhao(String marca, String modelo, int ano, int quilometragem, String placa, int cargaMaxima) {
