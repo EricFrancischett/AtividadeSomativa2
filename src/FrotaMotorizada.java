@@ -122,7 +122,7 @@ public class FrotaMotorizada {
         ObjectOutputStream outputStream = null;
         try {
             outputStream = new ObjectOutputStream
-                    (new FileOutputStream("c:\\temp\\veiculos.dados"));
+                    (new FileOutputStream("veiculos.dados"));
             for (int i=0; i < veiculos.size(); i++)
                 outputStream.writeObject(veiculos.get(i));
         } catch (FileNotFoundException ex) {
@@ -150,7 +150,7 @@ public class FrotaMotorizada {
 
         try {
             inputStream = new ObjectInputStream
-                    (new FileInputStream("c:\\temp\\veiculos.dados"));
+                    (new FileInputStream("veiculos.dados"));
             Object obj = null;
             while ((obj = inputStream.readObject()) != null) {
                 if (obj instanceof Veiculo) {

@@ -31,3 +31,4 @@ bin/
 ### Other Files ###
 .idea
 *.iml
+.dados
