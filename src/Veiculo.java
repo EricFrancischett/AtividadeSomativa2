@@ -25,6 +25,7 @@ public abstract class Veiculo implements Serializable {
         retorno += "Quilometragem: " + this.quilometragem + "\n";
         retorno += "Placa: "+ this.placa + "\n";
         retorno += "Tipo: "+ this.tipo + "\n";
+        retorno += "Utilidade: "+ utilidade() + "\n";
         return retorno;
     }
     public abstract String utilidade();

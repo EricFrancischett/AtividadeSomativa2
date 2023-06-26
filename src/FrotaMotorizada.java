@@ -49,9 +49,10 @@ public class FrotaMotorizada {
     public Automovel leAutomovel (){
 
         Object [] valores = new Object [6];
-        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Motorizacao"};
+        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Motorização"};
         String [] intValores = {nomeVal[2].toString(), nomeVal[3].toString()};
         valores = leValores (nomeVal, intValores);
+
 
         String marca = (String) valores[0];
         String modelo = (String) valores[1];
