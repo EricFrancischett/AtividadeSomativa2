@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 import javax.swing.JOptionPane;
 
 
@@ -15,50 +18,71 @@ public class FrotaMotorizada {
     public FrotaMotorizada() {
         this.veiculos = new ArrayList<Veiculo>();
     }
-    public String[] leValores (String [] dadosIn){
-        String [] dadosOut = new String [dadosIn.length];
-        for (int i = 0; i < dadosIn.length; i++)
-            dadosOut[i] = JOptionPane.showInputDialog  ("Entre com " + dadosIn[i]+ ": ");
-        return dadosOut;
+    public Object[] leValores (Object [] dadosIn, String[]... intValores){
+    Object [] dadosOut = new Object [dadosIn.length]; // modify the output array to hold Objects
+    String[] intValoresMerged = Stream.of(intValores).flatMap(Stream::of).toArray(String[]::new);
+    for (int i = 0; i < dadosIn.length; i++){
+        if (Arrays.asList(intValoresMerged).contains(dadosIn[i])){
+            String entrada = JOptionPane.showInputDialog("Entre com " + dadosIn[i]+ ": ");
+            dadosOut[i] = this.retornaInteiro(entrada, "Entre com " + dadosIn[i]+ ": ");
+        } else {
+            dadosOut[i] = JOptionPane.showInputDialog("Entre com " + dadosIn[i]+ ": ");
+        }
     }
+    return dadosOut;
+}
 
     public Automovel leAutomovel (){
 
-        String [] valores = new String [6];
-        String [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Motorizacao"};
-        valores = leValores (nomeVal);
+        Object [] valores = new Object [6];
+        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Motorizacao"};
+        String [] intValores = {"Ano", "Quilometragem"};
+        valores = leValores (nomeVal, intValores);
 
-        int ano = this.retornaInteiro(valores[2]);
-        int quilometragem = this.retornaInteiro(valores[3]);
+        String marca = (String) valores[0];
+        String modelo = (String) valores[1];
+        int ano = (int) valores[2];
+        int quilometragem = (int) valores[3];
+        String placa = (String) valores[4];
+        String motorizacao = (String) valores[5];
 
-        Automovel automovel = new Automovel (valores[0],valores[1],ano,quilometragem,valores[4],valores[5]);
+        Automovel automovel = new Automovel (marca,modelo,ano,quilometragem,placa,motorizacao);
         return automovel;
     }
 
     public Caminhao leCaminhao (){
 
-        String [] valores = new String [6];
-        String [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Carga Máxima"};
-        valores = leValores (nomeVal);
+        Object [] valores = new Object [6];
+        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Carga Máxima"};
+        String [] intValores = {"Ano", "Quilometragem", "Carga Máxima"};
+        valores = leValores (nomeVal, intValores);
 
-        int ano = this.retornaInteiro(valores[2]);
-        int quilometragem = this.retornaInteiro(valores[3]);
-        int cargaMaxima = this.retornaInteiro(valores[5]);
+        String marca = (String) valores[0];
+        String modelo = (String) valores[1];
+        int ano = (int) valores[2];
+        int quilometragem = (int) valores[3];
+        String placa = (String) valores[4];
+        int cargaMaxima = (int) valores[5];
 
-        Caminhao caminhao = new Caminhao (valores[0],valores[1],ano,quilometragem,valores[4],cargaMaxima);
+
+        Caminhao caminhao = new Caminhao (marca,modelo,ano,quilometragem,placa,cargaMaxima);
         return caminhao;
     }
     public Onibus leOnibus (){
 
-        String [] valores = new String [6];
-        String [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Assentos"};
-        valores = leValores (nomeVal);
+        Object [] valores = new Object [6];
+        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Assentos"};
+        String [] intValores = {"Ano", "Quilometragem", "Assentos"};
+        valores = leValores (nomeVal, intValores);
 
-        int ano = this.retornaInteiro(valores[2]);
-        int quilometragem = this.retornaInteiro(valores[3]);
-        int assentos = this.retornaInteiro(valores[5]);
+        String marca = (String) valores[0];
+        String modelo = (String) valores[1];
+        int ano = (int) valores[2];
+        int quilometragem = (int) valores[3];
+        String placa = (String) valores[4];
+        int assentos = (int) valores[5];
 
-        Onibus onibus = new Onibus (valores[0],valores[1],ano,quilometragem,valores[4],assentos);
+        Onibus onibus = new Onibus (marca,modelo,ano,quilometragem,placa,assentos);
         return onibus;
     }
 
