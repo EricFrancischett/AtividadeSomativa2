@@ -31,3 +31,6 @@ Neste projeto, estamos desenvolvendo uma aplicação em Java que permite gerenci
 
 * Eric Mello Francischett
 * Rodolfo Bittar Kunzel
+
+## Link do repositório
+* https://github.com/EricFrancischett/AtividadeSomativa2-Eric-Rodolfo
