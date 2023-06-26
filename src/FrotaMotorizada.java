@@ -68,7 +68,7 @@ public class FrotaMotorizada {
     public Caminhao leCaminhao (){
 
         Object [] valores = new Object [6];
-        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Carga Máxima"};
+        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Carga Máxima (t)"};
         String [] intValores = {nomeVal[2].toString(), nomeVal[3].toString(), nomeVal[5].toString()};
         valores = leValores (nomeVal, intValores);
 
@@ -86,7 +86,7 @@ public class FrotaMotorizada {
     public Onibus leOnibus (){
 
         Object [] valores = new Object [6];
-        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Assentos"};
+        Object [] nomeVal = {"Marca", "Modelo", "Ano", "Quilometragem", "Placa", "Nº de Assentos"};
         String [] intValores = {nomeVal[2].toString(), nomeVal[3].toString(), nomeVal[5].toString()};
         valores = leValores (nomeVal, intValores);
 

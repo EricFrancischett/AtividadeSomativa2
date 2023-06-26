@@ -16,7 +16,7 @@ public class Automovel extends Veiculo{
 
     public String toString() {
         String retorno = super.toString();
-        retorno += "Motorização: Motor"+ this.motorizacao + "\n";
+        retorno += "Motorização: "+ this.motorizacao + "\n";
         return retorno;
     }
 }
