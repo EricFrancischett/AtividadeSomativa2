@@ -17,7 +17,7 @@ public class Caminhao extends Veiculo {
 
     public String toString() {
         String retorno = super.toString();
-        retorno += "Carga Máxima: "+ this.cargaMaxima + "toneladas\n";
+        retorno += "Carga Máxima: "+ this.cargaMaxima + " toneladas\n";
         return retorno;
     }
 }

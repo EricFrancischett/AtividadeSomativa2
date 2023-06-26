@@ -70,11 +70,11 @@ public class FrotaMotorizada {
             return false;
         }
     }
-    public int retornaInteiro(String entrada) { // retorna um valor inteiro
-        int numInt;
+    public int retornaInteiro(String entrada, String... currentmMessage) { // retorna um valor inteiro
+        String message = currentmMessage.length > 0 ? "\n" + currentmMessage[0] + "\n\n" : "";
         //Enquanto não for possível converter o valor de entrada para inteiro, permanece no loop
         while (!this.intValido(entrada)) {
-            entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um número inteiro.");
+            entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um número inteiro.\n" + message);
         }
         return Integer.parseInt(entrada);
     }
@@ -155,7 +155,7 @@ public class FrotaMotorizada {
                     "5. Recuperar Veículos\n" +
                     "9. Sair";
             entrada = JOptionPane.showInputDialog (menu + "\n\n");
-            opc1 = this.retornaInteiro(entrada);
+            opc1 = this.retornaInteiro(entrada, menu);
 
             switch (opc1) {
                 case 1:// Entrar dados
@@ -166,7 +166,7 @@ public class FrotaMotorizada {
                             "3. Caminhão\n";
 
                     entrada = JOptionPane.showInputDialog (menu + "\n\n");
-                    opc2 = this.retornaInteiro(entrada);
+                    opc2 = this.retornaInteiro(entrada, menu);
 
                     switch (opc2){
                         case 1: veiculos.add((Veiculo) leAutomovel());
